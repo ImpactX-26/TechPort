@@ -1,0 +1,7 @@
+{
+  "name": "GermanPath AI",
+  "description": "AI-Powered Applicant Journey for Germany: Intelligent profiling, document verification, gap detection, and agentic next-best-action guidance for Study, Ausbildung, and Work.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
+

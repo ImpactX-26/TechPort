@@ -1,0 +1,74 @@
+{
+  "entities": {
+    "Applicant": {
+      "title": "Applicant",
+      "description": "Represents an applicant journey profile",
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "description": "Applicant unique identifier"
+        },
+        "name": {
+          "type": "string",
+          "description": "Applicant full name",
+          "maxLength": 100
+        },
+        "country": {
+          "type": "string",
+          "description": "Country of citizenship",
+          "maxLength": 100
+        },
+        "age": {
+          "type": "number",
+          "description": "Applicant age"
+        },
+        "goal": {
+          "type": "string",
+          "description": "Germany Goal (Study, Ausbildung, Work)",
+          "enum": ["Study in Germany", "Ausbildung in Germany", "Work in Germany"]
+        },
+        "germanLevel": {
+          "type": "string",
+          "description": "CEFR German level",
+          "enum": ["Not yet started", "A1", "A2", "B1", "B2", "C1", "C2"]
+        },
+        "createdAt": {
+          "type": "string",
+          "format": "date-time",
+          "description": "Creation timestamp"
+        },
+        "updatedAt": {
+          "type": "string",
+          "format": "date-time",
+          "description": "Last update timestamp"
+        }
+      },
+      "required": ["id", "name", "country", "goal", "germanLevel"]
+    },
+    "DocumentRecord": {
+      "title": "DocumentRecord",
+      "description": "An uploaded and analyzed document",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "applicantId": { "type": "string" },
+        "name": { "type": "string", "maxLength": 150 },
+        "type": { "type": "string" },
+        "status": { "type": "string" },
+        "uploadedAt": { "type": "string", "format": "date-time" }
+      },
+      "required": ["id", "applicantId", "name", "type", "status"]
+    }
+  },
+  "firestore": {
+    "/applicants/{applicantId}": {
+      "schema": "Applicant",
+      "description": "Top-level applicant record"
+    },
+    "/applicants/{applicantId}/documents/{documentId}": {
+      "schema": "DocumentRecord",
+      "description": "Documents owned by an applicant"
+    }
+  }
+}
