@@ -1,0 +1,9 @@
+{
+  "name": "GermanPath AI - Career Platform for Germany",
+  "description": "AI-powered Career Platform for Germany with Document Verification, CV Generator, and Chancenkarte Recognition.",
+  "requestFramePermissions": [
+    "camera",
+    "microphone"
+  ],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

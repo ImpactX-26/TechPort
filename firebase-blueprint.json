@@ -1,0 +1,58 @@
+{
+  "entities": {
+    "Applicant": {
+      "title": "Applicant",
+      "description": "Applicant profile for German career and education platform",
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "maxLength": 128,
+          "description": "Unique identifier of the applicant (Firebase Auth UID)"
+        },
+        "email": {
+          "type": "string",
+          "maxLength": 128,
+          "description": "Applicant primary email"
+        },
+        "fullName": {
+          "type": "string",
+          "maxLength": 128,
+          "description": "Applicant full legal name"
+        },
+        "goal": {
+          "type": "string",
+          "enum": ["Study in Germany", "Ausbildung", "Work", "Chancenkarte"],
+          "description": "Primary Germany pathway goal"
+        },
+        "xpPoints": {
+          "type": "number",
+          "description": "Gamified progress XP points"
+        },
+        "completionPercentage": {
+          "type": "number",
+          "description": "Overall calculated profile completion percentage"
+        },
+        "digiLockerVerified": {
+          "type": "boolean",
+          "description": "Whether applicant identity was verified via DigiLocker"
+        },
+        "createdAt": {
+          "type": "string",
+          "description": "ISO timestamp of profile creation"
+        },
+        "updatedAt": {
+          "type": "string",
+          "description": "ISO timestamp of profile last update"
+        }
+      },
+      "required": ["id", "email", "fullName", "goal"]
+    }
+  },
+  "firestore": {
+    "/applicants/{applicantId}": {
+      "schema": "Applicant",
+      "description": "Stores user applicant record and career pathway documents"
+    }
+  }
+}
